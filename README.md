@@ -37,8 +37,8 @@ A comprehensive financial coaching application powered by AI that provides perso
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/rchhabra13/portfolio-projects.git
-   cd portfolio-projects/ai_financial_coach_agent
+   git clone https://github.com/rchhabra13/ai_financial_coach_agent.git
+   cd ai_financial_coach_agent
    ```
 
 2. **Install dependencies**
