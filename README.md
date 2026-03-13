@@ -1,39 +1,45 @@
-# 💰 AI Financial Coach Agent
+# AI Financial Coach Agent - Google ADK
 
-A comprehensive financial coaching application powered by AI that provides personalized financial advice, budget planning, investment guidance, and financial education. This agent combines multiple financial tools and real-time data to offer tailored financial coaching services.
+[![MIT License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Python 3.10+](https://img.shields.io/badge/Python-3.10+-blue.svg)](https://www.python.org/downloads/)
 
-## 🌟 Features
+A comprehensive financial coaching application powered by Google's Agent Development Kit (ADK) and Gemini AI. Provides personalized financial advice through a multi-agent system that analyzes budgets, recommends savings strategies, and creates debt reduction plans.
 
-### Core Financial Coaching
-- **Personalized Financial Assessment**: Comprehensive analysis of your financial situation
-- **Budget Planning & Management**: Custom budget creation and tracking recommendations
-- **Investment Guidance**: Portfolio analysis and investment recommendations
-- **Debt Management**: Strategies for debt reduction and consolidation
-- **Financial Goal Setting**: SMART goal creation and progress tracking
-- **Retirement Planning**: Long-term financial planning and retirement strategies
+## Overview
 
-### Advanced Capabilities
-- **Real-time Market Data**: Live stock prices, market trends, and economic indicators
-- **Risk Assessment**: Personalized risk tolerance evaluation
-- **Tax Optimization**: Tax planning and optimization strategies
-- **Insurance Analysis**: Coverage recommendations and gap analysis
-- **Educational Content**: Financial literacy resources and tutorials
-- **Interactive Q&A**: Natural language financial advice and explanations
+The AI Financial Coach implements a three-stage sequential analysis using specialized agents:
 
-### Multi-Agent Architecture
-- **Financial Advisor Agent**: Primary financial planning and advice
-- **Market Analyst Agent**: Real-time market analysis and trends
-- **Risk Assessment Agent**: Risk evaluation and mitigation strategies
-- **Educational Agent**: Financial education and literacy content
+1. **Budget Analysis Agent** - Categorizes spending and identifies optimization opportunities
+2. **Savings Strategy Agent** - Creates personalized savings plans and emergency fund recommendations
+3. **Debt Reduction Agent** - Develops optimized debt payoff strategies
 
-## 🚀 Getting Started
+## Features
 
-### Prerequisites
-- Python 3.8 or higher
-- OpenAI API key
-- YFinance for market data (no API key required)
+- **Multi-Agent Sequential Processing**: Specialized agents for budget, savings, and debt analysis
+- **Comprehensive Financial Analysis**: Spending categorization, income analysis, and financial health assessment
+- **Transaction Processing**: CSV upload support for transaction data
+- **Manual Expense Entry**: Easy input form for expense categories
+- **Debt Management**: Avalanche and snowball method comparisons
+- **Emergency Fund Calculation**: Based on expense analysis and dependants
+- **Interactive Visualizations**: Charts and tables for financial insights
+- **PDF Export**: Download comprehensive reports
 
-### Installation
+## Tech Stack
+
+- **Language**: [Python 3.10+](https://www.python.org/downloads/)
+- **Agent Framework**: [Google ADK](https://github.com/google-adk)
+- **LLM**: [Google Gemini 2.5 Flash](https://ai.google.dev/gemini-api)
+- **UI**: [Streamlit](https://docs.streamlit.io/)
+- **Data Processing**: [Pandas](https://pandas.pydata.org/), [Plotly](https://plotly.com/)
+- **Storage**: [SQLite](https://www.sqlite.org/) for conversation history
+
+## Prerequisites
+
+- Python 3.10 or higher
+- Google Gemini API key
+- Internet connection
+
+## Installation
 
 1. **Clone the repository**
    ```bash
@@ -41,191 +47,155 @@ A comprehensive financial coaching application powered by AI that provides perso
    cd ai_financial_coach_agent
    ```
 
-2. **Install dependencies**
+2. **Create virtual environment**
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # Windows: venv\Scripts\activate
+   ```
+
+3. **Install dependencies**
    ```bash
    pip install -r requirements.txt
    ```
 
-3. **Set up API keys**
+4. **Set up API keys**
    ```bash
-   export OPENAI_API_KEY="your-openai-api-key-here"
+   cp .env.example .env
+   # Edit .env with your GOOGLE_API_KEY
    ```
 
-4. **Run the application**
+## Usage
+
+1. **Run the application**
    ```bash
    streamlit run ai_financial_coach_agent.py
    ```
 
-5. **Access the application**
-   - Open your browser to `http://localhost:8501`
-   - Enter your financial information and goals
-   - Start receiving personalized financial coaching
+2. **Enter Your Profile**
+   - Monthly income
+   - Number of dependants
+   - Weight, height, age, sex
+   - Activity level and fitness goals
 
-## 💡 Usage Examples
+3. **Input Expenses** (Choose one method)
+   - Upload CSV with transactions
+   - Enter manually by category
 
-### Budget Planning
-```
-"I need help creating a monthly budget. I make $5,000/month, have $1,200 in rent, $300 in utilities, and $400 in student loans. I want to save 20% of my income."
-```
+4. **Add Debts** (Optional)
+   - Enter debt details: name, amount, interest rate, minimum payment
 
-### Investment Guidance
-```
-"I'm 25 years old and want to start investing. I have $10,000 to invest and want moderate risk. What should I consider?"
-```
+5. **Get Analysis**
+   - Click "Analyze My Finances"
+   - View budget analysis, savings strategy, and debt reduction plans
 
-### Debt Management
-```
-"I have $15,000 in credit card debt at 18% APR and $25,000 in student loans at 6% APR. What's the best strategy to pay these off?"
-```
-
-### Retirement Planning
-```
-"I'm 30 years old and want to retire at 65. I currently have $5,000 in my 401k. How much should I be saving each month?"
-```
-
-## 🛠️ Technical Architecture
-
-### Core Technologies
-- **Framework**: Agno AI Agent Framework
-- **Language Model**: OpenAI GPT-4o
-- **UI**: Streamlit
-- **Market Data**: YFinance
-- **Storage**: SQLite for conversation history
-
-### Agent Components
-- **Financial Coach**: Main orchestrator and financial advisor
-- **Market Analyst**: Real-time market data and analysis
-- **Risk Assessor**: Risk tolerance and portfolio analysis
-- **Educator**: Financial literacy and education content
-
-### Data Sources
-- Real-time stock market data via YFinance
-- Economic indicators and market trends
-- Financial planning best practices
-- Regulatory and compliance information
-
-## 📊 Features in Detail
-
-### Financial Assessment
-- Income analysis and optimization
-- Expense categorization and tracking
-- Net worth calculation
-- Cash flow analysis
-- Financial health scoring
-
-### Investment Guidance
-- Portfolio diversification recommendations
-- Asset allocation strategies
-- Risk-return analysis
-- Market timing insights
-- Tax-efficient investing
-
-### Budget Management
-- 50/30/20 rule implementation
-- Zero-based budgeting
-- Envelope method
-- Emergency fund planning
-- Expense optimization
-
-### Debt Management
-- Debt snowball method
-- Debt avalanche method
-- Debt consolidation strategies
-- Credit score improvement
-- Refinancing recommendations
-
-## 🔧 Configuration
+## Configuration
 
 ### Environment Variables
+
 ```bash
-OPENAI_API_KEY=your-openai-api-key
+GOOGLE_API_KEY=your_gemini_api_key_here
 ```
 
-### Customization Options
-- Risk tolerance levels
-- Investment preferences
-- Financial goals timeline
-- Budget categories
-- Notification preferences
+### CSV Format
 
-## 📈 Performance Features
+Required columns:
+- **Date**: YYYY-MM-DD format
+- **Category**: Expense category
+- **Amount**: Numeric value
 
-- **Real-time Processing**: Instant financial analysis and recommendations
-- **Persistent Memory**: Remembers your financial history and preferences
-- **Scalable Architecture**: Handles multiple users and complex financial scenarios
-- **Error Handling**: Graceful handling of API failures and data issues
+## Project Structure
 
-## 🔒 Security & Privacy
+```
+ai_financial_coach_agent/
+├── ai_financial_coach_agent.py  # Main application
+├── requirements.txt              # Dependencies
+├── .env.example                 # Environment template
+├── .gitignore                   # Git ignore patterns
+└── README.md                    # This file
+```
 
-- **Data Encryption**: All financial data is encrypted in transit and at rest
-- **No Data Storage**: Personal financial information is not permanently stored
-- **API Security**: Secure API key management and transmission
-- **Privacy Compliance**: Follows financial data privacy best practices
+## Features in Detail
 
-## 🤝 Contributing
+### Budget Analysis
+- Spending categorization by category
+- Income vs. expense comparison
+- Monthly surplus/deficit calculation
+- Spending reduction recommendations with estimated savings
 
-We welcome contributions! Please see our contributing guidelines:
+### Savings Strategy
+- Emergency fund size calculation (3-6 months expenses)
+- Recommended savings allocation
+- Automation techniques for consistent saving
+- Progressive savings growth plan
 
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Add tests if applicable
-5. Submit a pull request
+### Debt Reduction
+- Avalanche method (highest interest first)
+- Snowball method (smallest balance first)
+- Interest comparison and payoff timeline
+- Consolidation and refinancing suggestions
+- Credit score improvement strategies
 
-## 📝 License
+## Example Scenarios
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+### Young Professional ($5,000/month income)
+- Budget allocation: 50/30/20 rule
+- Emergency fund: 3 months expenses
+- Debt payoff: 5-year plan for student loans
 
-## 🆘 Support
+### Family with Dependants
+- Child-related expense categories
+- Education savings recommendations
+- Higher emergency fund requirements
+- Life insurance considerations
 
-For support and questions:
-- Create an issue in the GitHub repository
-- Check the documentation
-- Review the FAQ section
+### High-Income Earner
+- Investment portfolio recommendations
+- Tax optimization strategies
+- Wealth building acceleration
+- Retirement planning focus
 
-## 🔮 Roadmap
+## Troubleshooting
 
-- [ ] Integration with banking APIs
-- [ ] Mobile app development
-- [ ] Advanced portfolio optimization
-- [ ] Tax filing integration
-- [ ] Multi-currency support
-- [ ] Voice interface
-- [ ] Advanced analytics dashboard
+### "GOOGLE_API_KEY not found"
+```bash
+export GOOGLE_API_KEY='your-key-here'
+```
 
-## 🙏 Acknowledgments
+### CSV Upload Errors
+- Verify column names: Date, Category, Amount
+- Check date format: YYYY-MM-DD
+- Ensure amounts are numeric
 
-- OpenAI for the GPT-4o language model
-- YFinance for market data
-- Agno framework for agent orchestration
-- Streamlit for the user interface
-- The open-source community for various financial libraries
+### Agent Analysis Slow
+- Large CSV files take longer to process
+- Check internet connection
+- Verify API key is valid
+
+## Data Privacy
+
+- All data is processed locally
+- Financial information is not permanently stored
+- Secure API communication with Google
+- No data sharing with third parties
+
+## License
+
+MIT License - see [LICENSE](LICENSE) file for details.
+
+## Contributing
+
+Contributions are welcome! Submit Pull Requests or create GitHub issues.
+
+## Support
+
+- [GitHub Issues](https://github.com/rchhabra13/ai_financial_coach_agent/issues)
+- [Google ADK Docs](https://github.com/google-adk)
+- [Gemini API Docs](https://ai.google.dev/gemini-api)
+
+## Author
+
+[Rishi Chhabra](https://github.com/rchhabra13)
 
 ---
 
-**Disclaimer**: This application provides educational and informational content only. It is not a substitute for professional financial advice. Always consult with qualified financial professionals before making significant financial decisions.
-<!-- Updated: 2025-09-16 -->
-
-<!-- Updated: 2025-09-16 -->
-
-<!-- Updated: 2025-09-16 -->
-
-<!-- Updated: 2025-09-16 -->
-
-<!-- Updated: 2025-09-16 -->
-
-<!-- Updated: 2025-09-16 -->
-
-<!-- Updated: 2025-09-16 -->
-
-<!-- Updated: 2025-09-16 -->
-
-<!-- Updated: 2025-09-16 -->
-
-<!-- Updated: 2025-09-16 -->
-
-<!-- Updated: 2025-09-16 -->
-
-<!-- Updated: 2025-09-16 -->
-
-<!-- Updated: 2025-09-16 -->
+**Disclaimer**: This tool provides educational and informational content only. It is not a substitute for professional financial advice. Always consult qualified financial professionals before making significant financial decisions.
